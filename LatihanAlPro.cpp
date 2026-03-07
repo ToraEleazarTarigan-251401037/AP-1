@@ -7,6 +7,7 @@ int main() {
         string nama; 
         int gol, anak;
         long base = 0, tunjangan = 0, total = 0;
+        //menggunakan tipe data long untuk mencegah error pada bilangan int yang berdigit banyak
 
         cout << "\nMasukkan Nama Anda : "; 
         cin >> nama;
@@ -14,24 +15,24 @@ int main() {
         cin >> gol;
         cout << "Jumlah anak : "; 
         cin >> anak;
-
+         //unutuk menentukan gaji golongan dengan menggunakan ternary operator
         base = (gol == 1) ? 5000000 : (gol == 2) ? 3000000 : (gol == 3) ? 2500000 : 0;
         
         if (base == 0) { 
             cout << "Golongan tidak valid!\n"; 
             continue; 
         }
-
+         //menghitung tunjangan anak dengan kondisi (if/else)
         if (anak > 2) {
             tunjangan = anak * 750000;
         } else if (anak > 0) {
             tunjangan = anak * 500000;
         }
-
+         // Menghitung Total Gaji (Gaji Pokok - Pajak 5% + Tunjangan)
         total = base - (base * 0.05) + tunjangan;
 
         cout << "Gaji total : Rp. " << total << ",-\n";
-
+         //perulangan
         cout << "------------------------------\n";
         cout << "Hitung data lain? (y/n) : "; 
         cin >> ulang;
@@ -39,4 +40,5 @@ int main() {
     } while (ulang == 'y' || ulang == 'Y');
 
     return 0;
+
 }
